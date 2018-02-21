@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="654.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.vistaControl.Mesero.ListosController">
+   <children>
+      <TableView fx:id="tbentregar" layoutX="24.0" layoutY="60.0" prefHeight="465.0" prefWidth="879.0">
+         <columns>
+            <TableColumn fx:id="mesaColumn" prefWidth="333.6666564941406" text="Mesa" />
+            <TableColumn fx:id="cuentaColumn" prefWidth="210.33334350585938" text="Cuenta" />
+            <TableColumn fx:id="pedidoColumn" prefWidth="334.3333740234375" text="Pedido" />
+         </columns>
+      </TableView>
+      <Separator layoutX="24.0" layoutY="43.0" prefHeight="2.0" prefWidth="892.0" />
+      <Label layoutX="768.0" layoutY="14.0" text="Pedidos por entregar" textFill="#908b8b" />
+      <Button fx:id="btnentregado" layoutX="26.0" layoutY="545.0" mnemonicParsing="false" onAction="#handleEntregar" prefHeight="40.0" prefWidth="272.0" text="Entregado" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.vistaControl.Administrador.PrincipalAController">
+   <children>
+      <TabPane layoutX="-2.0" layoutY="65.0" prefHeight="490.0" prefWidth="957.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Ambientes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="566.0" layoutY="80.0" text="Ambiente" />
+                        <TableView fx:id="tbmesasilla" layoutX="46.0" layoutY="31.0" prefHeight="385.0" prefWidth="291.0">
+                          <columns>
+                            <TableColumn fx:id="nombreMesa" prefWidth="102.0" text="Mesa" />
+                            <TableColumn fx:id="numSillas" prefWidth="112.0" text="Sillas" />
+                              <TableColumn fx:id="ambiente" prefWidth="75.0" text="Categoria" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btnaddmesa" layoutX="452.0" layoutY="145.0" mnemonicParsing="false" onAction="#agregarMesa" prefHeight="47.0" prefWidth="130.0" text="Agregar Mesa" />
+                        <Button fx:id="btnaddsilla" layoutX="611.0" layoutY="145.0" mnemonicParsing="false" onAction="#agregarSilla" prefHeight="47.0" prefWidth="128.0" text="Agregar Silla" />
+                        <Button fx:id="btnquitarmesa" layoutX="454.0" layoutY="207.0" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="47.0" prefWidth="127.0" text="Quitar Mesa" />
+                        <Button fx:id="btnquitarsilla" layoutX="612.0" layoutY="207.0" mnemonicParsing="false" onAction="#quitarSilla" prefHeight="47.0" prefWidth="126.0" text="Quitar Silla" />
+                        <Button fx:id="btneliminaramb" layoutX="517.0" layoutY="282.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" text="Eliminar ambiente" />
+                        <ChoiceBox fx:id="chambiente" layoutX="517.0" layoutY="106.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Usuarios">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tbusuario" layoutX="13.0" layoutY="17.0" prefHeight="368.0" prefWidth="933.0">
+                          <columns>
+                            <TableColumn prefWidth="175.0" text="Nombre" />
+                            <TableColumn prefWidth="189.0" text="Apellido" />
+                              <TableColumn prefWidth="121.0" text="Cedula" />
+                              <TableColumn prefWidth="190.0" text="Direccion" />
+                              <TableColumn prefWidth="118.0" text="telefono" />
+                              <TableColumn prefWidth="139.0" text="Eliminado" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btneditar" layoutX="160.0" layoutY="396.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="47.0" prefWidth="129.0" text="Editar" />
+                        <Button fx:id="btnnuevo" layoutX="14.0" layoutY="396.0" mnemonicParsing="false" onAction="#agregarUsuario" prefHeight="47.0" prefWidth="129.0" text="Nuevo" />
+                        <Button fx:id="btneliminar" layoutX="449.0" layoutY="396.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="129.0" text="Eliminar" />
+                        <Button fx:id="btnhabilitar" layoutX="305.0" layoutY="396.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="129.0" text="Habilitar" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Reportes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="rdbplato" layoutX="38.0" layoutY="29.0" mnemonicParsing="false" text="Por plato" />
+                        <RadioButton fx:id="rdbmesero" layoutX="38.0" layoutY="69.0" mnemonicParsing="false" text="Por mesero" />
+                        <RadioButton fx:id="rdbambiente" layoutX="38.0" layoutY="108.0" mnemonicParsing="false" text="Por Ambiente" />
+                        <RadioButton fx:id="rdbcategoria" layoutX="38.0" layoutY="148.0" mnemonicParsing="false" text="Por Categoria" />
+                        <ChoiceBox fx:id="chplatorep" layoutX="223.0" layoutY="24.0" prefHeight="31.0" prefWidth="494.0" />
+                        <ChoiceBox fx:id="chmeserorep" layoutX="223.0" layoutY="64.0" prefHeight="31.0" prefWidth="494.0" />
+                        <ChoiceBox fx:id="chambienterep" layoutX="223.0" layoutY="103.0" prefHeight="31.0" prefWidth="494.0" />
+                        <ChoiceBox fx:id="chcategoriarep" layoutX="223.0" layoutY="143.0" prefHeight="31.0" prefWidth="494.0" />
+                        <Button fx:id="btngenerar" layoutX="387.0" layoutY="241.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="183.0" text="Generar" />
+                        <DatePicker fx:id="dphasta" layoutX="548.0" layoutY="185.0" prefHeight="31.0" prefWidth="169.0" />
+                        <Label layoutX="223.0" layoutY="190.0" text="Desde" />
+                        <Label layoutX="496.0" layoutY="190.0" text="Hasta" />
+                        <DatePicker fx:id="dpdesde" layoutX="277.0" layoutY="185.0" prefHeight="31.0" prefWidth="169.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="14.0" layoutY="26.0" text="Administrador" />
+      <Label fx:id="lblnombre" layoutX="116.0" layoutY="26.0" text="NOMBREDELADMINISTRADOR" />
+   </children>
+</AnchorPane>

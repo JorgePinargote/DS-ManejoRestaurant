@@ -1,0 +1,577 @@
+@startuml
+abstract class Main.Interfaces.InterGraficas
+abstract class Main.model.MenuElemento
+abstract class Main.model.Trabajador
+annotation java.lang.Override
+annotation javafx.fxml.FXML
+class Main.Conexion
+class Main.Help.CheckPedidos
+class Main.Help.CuentaConverter
+class Main.Help.MesaConverter
+class Main.Help.PedidoConverter
+class Main.Help.infoEntrega
+class Main.Interfaces.ConcretGrafica
+class Main.Interfaces.InAdministrador
+class Main.Interfaces.InCajero
+class Main.Interfaces.InCocinero
+class Main.Interfaces.InMesero
+class Main.Login
+class Main.ProyectoDS
+class Main.model.Administrador
+class Main.model.Bebida
+class Main.model.Cajero
+class Main.model.Categoria
+class Main.model.Cliente
+class Main.model.Cocinero
+class Main.model.Combo
+class Main.model.ConcretTrabajador
+class Main.model.Cuenta
+class Main.model.Mesa
+class Main.model.Mesero
+class Main.model.Pedido
+class Main.model.Persona
+class Main.model.Plato
+class Main.model.detallePedido
+class Main.vistaControl.Administrador.NuevoEditarController
+class Main.vistaControl.Administrador.PrincipalAController
+class Main.vistaControl.Cajero.MetVisaController
+class Main.vistaControl.Cajero.NuevoEditarClienteController
+class Main.vistaControl.Cajero.PrincipalCController
+class Main.vistaControl.Cocinero.AtendiendoController
+class Main.vistaControl.Cocinero.PrincipalMController
+class Main.vistaControl.Mesero.EstadoController
+class Main.vistaControl.Mesero.ListosController
+class Main.vistaControl.Mesero.NuevoItemController
+class Main.vistaControl.Mesero.PincipalController
+class Main.vistaControl.login.FXMLDocumentController
+class java.io.IOException
+class java.net.URL
+class java.sql.Connection
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.ResultSetMetaData
+class java.sql.SQLException
+class java.sql.Statement
+class java.sql.Timestamp
+class java.text.DateFormat
+class java.text.SimpleDateFormat
+class java.util.Date
+class java.util.Queue
+class java.util.ResourceBundle
+class java.util.logging.Level
+class java.util.logging.Logger
+class javafx.application.Application
+class javafx.application.Platform
+class javafx.beans.property.BooleanProperty
+class javafx.beans.property.DoubleProperty
+class javafx.beans.property.IntegerProperty
+class javafx.beans.property.SimpleBooleanProperty
+class javafx.beans.property.SimpleDoubleProperty
+class javafx.beans.property.SimpleIntegerProperty
+class javafx.beans.property.SimpleStringProperty
+class javafx.beans.property.StringProperty
+class javafx.beans.value.ChangeListener
+class javafx.beans.value.ObservableValue
+class javafx.collections.FXCollections
+class javafx.collections.ListChangeListener
+class javafx.collections.ObservableList
+class javafx.event.ActionEvent
+class javafx.event.EventHandler
+class javafx.fxml.FXMLLoader
+class javafx.scene.Node
+class javafx.scene.Parent
+class javafx.scene.Scene
+class javafx.scene.control.Alert
+class javafx.scene.control.Alert.AlertType
+class javafx.scene.control.Button
+class javafx.scene.control.CheckBox
+class javafx.scene.control.ChoiceBox
+class javafx.scene.control.DatePicker
+class javafx.scene.control.Label
+class javafx.scene.control.RadioButton
+class javafx.scene.control.Tab
+class javafx.scene.control.TableCell
+class javafx.scene.control.TableColumn
+class javafx.scene.control.TableView
+class javafx.scene.control.TextArea
+class javafx.scene.control.TextField
+class javafx.scene.control.cell.PropertyValueFactory
+class javafx.scene.layout.AnchorPane
+class javafx.scene.layout.BorderPane
+class javafx.stage.Stage
+class javafx.util.StringConverter
+interface Main.Interfaces.FactoryGrafica
+interface Main.model.FactoryTrabajador
+interface java.lang.Runnable
+interface javafx.fxml.Initializable
+Main.Interfaces.InterGraficas ..> Main.model.Trabajador
+Main.model.MenuElemento ..> Main.Conexion
+Main.model.MenuElemento ..> java.sql.Connection
+Main.model.MenuElemento ..> java.sql.ResultSet
+Main.model.MenuElemento ..> java.sql.ResultSetMetaData
+Main.model.MenuElemento ..> java.sql.Statement
+Main.model.MenuElemento ..> javafx.beans.property.DoubleProperty
+Main.model.MenuElemento ..> javafx.beans.property.IntegerProperty
+Main.model.MenuElemento ..> javafx.beans.property.SimpleDoubleProperty
+Main.model.MenuElemento ..> javafx.beans.property.SimpleIntegerProperty
+Main.model.MenuElemento ..> javafx.beans.property.SimpleStringProperty
+Main.model.MenuElemento ..> javafx.beans.property.StringProperty
+Main.model.MenuElemento ..> javafx.collections.FXCollections
+Main.model.MenuElemento ..> javafx.collections.ObservableList
+Main.model.Trabajador --|> Main.model.Persona
+Main.model.Trabajador ..> javafx.beans.property.BooleanProperty
+Main.model.Trabajador ..> javafx.beans.property.SimpleBooleanProperty
+Main.model.Trabajador ..> javafx.beans.property.SimpleStringProperty
+Main.model.Trabajador ..> javafx.beans.property.StringProperty
+Main.Conexion ..> java.sql.Connection
+Main.Conexion ..> java.sql.DriverManager
+Main.Help.CheckPedidos ..> Main.model.MenuElemento
+Main.Help.CheckPedidos ..> java.lang.Override
+Main.Help.CheckPedidos ..> Main.Conexion
+Main.Help.CheckPedidos ..> Main.model.Pedido
+Main.Help.CheckPedidos ..> Main.model.detallePedido
+Main.Help.CheckPedidos ..> java.sql.Connection
+Main.Help.CheckPedidos ..> java.sql.PreparedStatement
+Main.Help.CheckPedidos ..> java.sql.ResultSet
+Main.Help.CheckPedidos ..> java.sql.ResultSetMetaData
+Main.Help.CheckPedidos ..> java.sql.Statement
+Main.Help.CheckPedidos ..> java.sql.Timestamp
+Main.Help.CheckPedidos ..> java.util.Date
+Main.Help.CheckPedidos ..> javafx.application.Platform
+Main.Help.CheckPedidos ..> javafx.collections.ObservableList
+Main.Help.CheckPedidos --|> java.lang.Runnable
+Main.Help.CuentaConverter ..> java.lang.Override
+Main.Help.CuentaConverter ..> Main.model.Cuenta
+Main.Help.CuentaConverter --|> javafx.util.StringConverter
+Main.Help.MesaConverter ..> java.lang.Override
+Main.Help.MesaConverter ..> Main.model.Mesa
+Main.Help.MesaConverter --|> javafx.util.StringConverter
+Main.Help.PedidoConverter ..> java.lang.Override
+Main.Help.PedidoConverter ..> Main.model.Mesa
+Main.Help.PedidoConverter ..> Main.model.Pedido
+Main.Help.PedidoConverter --|> javafx.util.StringConverter
+Main.Help.infoEntrega ..> Main.model.Cuenta
+Main.Help.infoEntrega ..> Main.model.Pedido
+Main.Help.infoEntrega ..> javafx.beans.property.IntegerProperty
+Main.Help.infoEntrega ..> javafx.beans.property.SimpleIntegerProperty
+Main.Interfaces.ConcretGrafica ..> Main.model.Trabajador
+Main.Interfaces.ConcretGrafica ..> java.lang.Override
+Main.Interfaces.ConcretGrafica ..> Main.model.Administrador
+Main.Interfaces.ConcretGrafica ..> Main.model.Cajero
+Main.Interfaces.ConcretGrafica ..> Main.model.Cocinero
+Main.Interfaces.ConcretGrafica ..> Main.model.Mesero
+Main.Interfaces.ConcretGrafica --|> Main.Interfaces.FactoryGrafica
+Main.Interfaces.InAdministrador --|> Main.Interfaces.InterGraficas
+Main.Interfaces.InAdministrador ..> Main.model.Trabajador
+Main.Interfaces.InAdministrador ..> java.lang.Override
+Main.Interfaces.InAdministrador ..> Main.ProyectoDS
+Main.Interfaces.InAdministrador ..> java.io.IOException
+Main.Interfaces.InAdministrador ..> javafx.fxml.FXMLLoader
+Main.Interfaces.InAdministrador ..> javafx.scene.Scene
+Main.Interfaces.InAdministrador ..> javafx.scene.layout.AnchorPane
+Main.Interfaces.InAdministrador ..> javafx.stage.Stage
+Main.Interfaces.InCajero --|> Main.Interfaces.InterGraficas
+Main.Interfaces.InCajero ..> Main.model.Trabajador
+Main.Interfaces.InCajero ..> java.lang.Override
+Main.Interfaces.InCajero ..> Main.ProyectoDS
+Main.Interfaces.InCajero ..> java.io.IOException
+Main.Interfaces.InCajero ..> javafx.fxml.FXMLLoader
+Main.Interfaces.InCajero ..> javafx.scene.Scene
+Main.Interfaces.InCajero ..> javafx.scene.layout.AnchorPane
+Main.Interfaces.InCajero ..> javafx.stage.Stage
+Main.Interfaces.InCocinero --|> Main.Interfaces.InterGraficas
+Main.Interfaces.InCocinero ..> Main.model.Trabajador
+Main.Interfaces.InCocinero ..> java.lang.Override
+Main.Interfaces.InCocinero ..> Main.ProyectoDS
+Main.Interfaces.InCocinero ..> java.io.IOException
+Main.Interfaces.InCocinero ..> javafx.fxml.FXMLLoader
+Main.Interfaces.InCocinero ..> javafx.scene.Scene
+Main.Interfaces.InCocinero ..> javafx.scene.layout.AnchorPane
+Main.Interfaces.InCocinero ..> javafx.stage.Stage
+Main.Interfaces.InMesero --|> Main.Interfaces.InterGraficas
+Main.Interfaces.InMesero ..> Main.model.Trabajador
+Main.Interfaces.InMesero ..> java.lang.Override
+Main.Interfaces.InMesero ..> Main.ProyectoDS
+Main.Interfaces.InMesero ..> java.io.IOException
+Main.Interfaces.InMesero ..> java.util.logging.Level
+Main.Interfaces.InMesero ..> java.util.logging.Logger
+Main.Interfaces.InMesero ..> javafx.fxml.FXMLLoader
+Main.Interfaces.InMesero ..> javafx.scene.Scene
+Main.Interfaces.InMesero ..> javafx.scene.layout.AnchorPane
+Main.Interfaces.InMesero ..> javafx.stage.Stage
+Main.Login ..> Main.model.Trabajador
+Main.Login ..> Main.model.Bebida
+Main.Login ..> Main.model.Categoria
+Main.Login ..> Main.model.Combo
+Main.Login ..> Main.model.ConcretTrabajador
+Main.Login ..> Main.model.Plato
+Main.Login ..> java.sql.Connection
+Main.Login ..> java.sql.ResultSet
+Main.Login ..> java.sql.ResultSetMetaData
+Main.Login ..> java.sql.Statement
+Main.Login ..> Main.model.FactoryTrabajador
+Main.ProyectoDS ..> java.lang.Override
+Main.ProyectoDS --|> javafx.application.Application
+Main.ProyectoDS ..> javafx.fxml.FXMLLoader
+Main.ProyectoDS ..> javafx.scene.Parent
+Main.ProyectoDS ..> javafx.scene.Scene
+Main.ProyectoDS ..> javafx.scene.layout.AnchorPane
+Main.ProyectoDS ..> javafx.scene.layout.BorderPane
+Main.ProyectoDS ..> javafx.stage.Stage
+Main.model.Administrador --|> Main.model.Trabajador
+Main.model.Bebida --|> Main.model.MenuElemento
+Main.model.Bebida ..> java.lang.Override
+Main.model.Bebida ..> Main.Conexion
+Main.model.Bebida ..> java.sql.Connection
+Main.model.Bebida ..> java.sql.ResultSet
+Main.model.Bebida ..> java.sql.ResultSetMetaData
+Main.model.Bebida ..> java.sql.Statement
+Main.model.Bebida ..> javafx.beans.property.DoubleProperty
+Main.model.Bebida ..> javafx.collections.FXCollections
+Main.model.Bebida ..> javafx.collections.ObservableList
+Main.model.Cajero --|> Main.model.Trabajador
+Main.model.Categoria ..> java.lang.Override
+Main.model.Categoria ..> Main.Conexion
+Main.model.Categoria ..> java.sql.Connection
+Main.model.Categoria ..> java.sql.ResultSet
+Main.model.Categoria ..> java.sql.ResultSetMetaData
+Main.model.Categoria ..> java.sql.Statement
+Main.model.Categoria ..> javafx.beans.property.IntegerProperty
+Main.model.Categoria ..> javafx.beans.property.SimpleIntegerProperty
+Main.model.Categoria ..> javafx.beans.property.SimpleStringProperty
+Main.model.Categoria ..> javafx.beans.property.StringProperty
+Main.model.Categoria ..> javafx.collections.FXCollections
+Main.model.Categoria ..> javafx.collections.ObservableList
+Main.model.Cliente --|> Main.model.Persona
+Main.model.Cliente ..> javafx.collections.FXCollections
+Main.model.Cliente ..> javafx.collections.ObservableList
+Main.model.Cocinero --|> Main.model.Trabajador
+Main.model.Cocinero ..> Main.Conexion
+Main.model.Cocinero ..> java.sql.Connection
+Main.model.Cocinero ..> java.sql.PreparedStatement
+Main.model.Cocinero ..> java.sql.ResultSet
+Main.model.Cocinero ..> java.sql.ResultSetMetaData
+Main.model.Cocinero ..> java.sql.Statement
+Main.model.Cocinero ..> java.sql.Timestamp
+Main.model.Cocinero ..> java.util.Date
+Main.model.Cocinero ..> java.util.Queue
+Main.model.Cocinero ..> javafx.collections.FXCollections
+Main.model.Cocinero ..> javafx.collections.ObservableList
+Main.model.Combo --|> Main.model.MenuElemento
+Main.model.Combo ..> java.lang.Override
+Main.model.Combo ..> Main.Conexion
+Main.model.Combo ..> java.sql.Connection
+Main.model.Combo ..> java.sql.ResultSet
+Main.model.Combo ..> java.sql.ResultSetMetaData
+Main.model.Combo ..> java.sql.Statement
+Main.model.Combo ..> javafx.collections.FXCollections
+Main.model.Combo ..> javafx.collections.ObservableList
+Main.model.ConcretTrabajador ..> java.lang.Override
+Main.model.ConcretTrabajador --|> Main.model.FactoryTrabajador
+Main.model.Cuenta ..> Main.Conexion
+Main.model.Cuenta ..> Main.Login
+Main.model.Cuenta ..> java.sql.Connection
+Main.model.Cuenta ..> java.sql.PreparedStatement
+Main.model.Cuenta ..> java.sql.ResultSet
+Main.model.Cuenta ..> java.sql.ResultSetMetaData
+Main.model.Cuenta ..> java.sql.Statement
+Main.model.Cuenta ..> java.sql.Timestamp
+Main.model.Cuenta ..> java.util.Date
+Main.model.Cuenta ..> javafx.collections.FXCollections
+Main.model.Cuenta ..> javafx.collections.ObservableList
+Main.model.Mesa ..> Main.Conexion
+Main.model.Mesa ..> java.sql.Connection
+Main.model.Mesa ..> java.sql.PreparedStatement
+Main.model.Mesa ..> java.sql.ResultSet
+Main.model.Mesa ..> java.sql.ResultSetMetaData
+Main.model.Mesa ..> java.sql.Statement
+Main.model.Mesa ..> java.util.Date
+Main.model.Mesa ..> javafx.beans.property.BooleanProperty
+Main.model.Mesa ..> javafx.beans.property.IntegerProperty
+Main.model.Mesa ..> javafx.beans.property.SimpleBooleanProperty
+Main.model.Mesa ..> javafx.beans.property.SimpleIntegerProperty
+Main.model.Mesa ..> javafx.beans.property.SimpleStringProperty
+Main.model.Mesa ..> javafx.beans.property.StringProperty
+Main.model.Mesa ..> javafx.collections.FXCollections
+Main.model.Mesa ..> javafx.collections.ObservableList
+Main.model.Mesero --|> Main.model.Trabajador
+Main.model.Mesero ..> Main.Help.CheckPedidos
+Main.model.Mesero ..> Main.Help.infoEntrega
+Main.model.Mesero ..> javafx.collections.FXCollections
+Main.model.Mesero ..> javafx.collections.ObservableList
+Main.model.Mesero ..> javafx.scene.control.Alert
+Main.model.Mesero ..> javafx.scene.control.Alert.AlertType
+Main.model.Pedido ..> Main.Conexion
+Main.model.Pedido ..> Main.Login
+Main.model.Pedido ..> java.sql.Connection
+Main.model.Pedido ..> java.sql.PreparedStatement
+Main.model.Pedido ..> java.sql.ResultSet
+Main.model.Pedido ..> java.sql.ResultSetMetaData
+Main.model.Pedido ..> java.sql.Statement
+Main.model.Pedido ..> java.sql.Timestamp
+Main.model.Pedido ..> java.text.SimpleDateFormat
+Main.model.Pedido ..> java.util.Date
+Main.model.Pedido ..> javafx.beans.property.BooleanProperty
+Main.model.Pedido ..> javafx.beans.property.DoubleProperty
+Main.model.Pedido ..> javafx.beans.property.IntegerProperty
+Main.model.Pedido ..> javafx.beans.property.SimpleBooleanProperty
+Main.model.Pedido ..> javafx.beans.property.SimpleDoubleProperty
+Main.model.Pedido ..> javafx.beans.property.SimpleIntegerProperty
+Main.model.Pedido ..> javafx.collections.FXCollections
+Main.model.Pedido ..> javafx.collections.ObservableList
+Main.model.Pedido ..> javafx.scene.control.Label
+Main.model.Persona ..> java.lang.Override
+Main.model.Persona ..> Main.Conexion
+Main.model.Persona ..> java.sql.Connection
+Main.model.Persona ..> java.sql.ResultSet
+Main.model.Persona ..> java.sql.ResultSetMetaData
+Main.model.Persona ..> java.sql.Statement
+Main.model.Persona ..> javafx.beans.property.IntegerProperty
+Main.model.Persona ..> javafx.beans.property.SimpleIntegerProperty
+Main.model.Persona ..> javafx.beans.property.SimpleStringProperty
+Main.model.Persona ..> javafx.beans.property.StringProperty
+Main.model.Persona ..> javafx.collections.FXCollections
+Main.model.Persona ..> javafx.collections.ObservableList
+Main.model.Plato --|> Main.model.MenuElemento
+Main.model.Plato ..> java.lang.Override
+Main.model.Plato ..> Main.Conexion
+Main.model.Plato ..> java.sql.Connection
+Main.model.Plato ..> java.sql.ResultSet
+Main.model.Plato ..> java.sql.ResultSetMetaData
+Main.model.Plato ..> java.sql.Statement
+Main.model.Plato ..> javafx.beans.property.StringProperty
+Main.model.Plato ..> javafx.collections.FXCollections
+Main.model.Plato ..> javafx.collections.ObservableList
+Main.model.detallePedido ..> Main.Conexion
+Main.model.detallePedido ..> java.sql.Connection
+Main.model.detallePedido ..> java.sql.PreparedStatement
+Main.model.detallePedido ..> javafx.beans.property.DoubleProperty
+Main.model.detallePedido ..> javafx.beans.property.IntegerProperty
+Main.model.detallePedido ..> javafx.beans.property.SimpleDoubleProperty
+Main.model.detallePedido ..> javafx.beans.property.SimpleIntegerProperty
+Main.model.detallePedido ..> javafx.beans.property.SimpleStringProperty
+Main.model.detallePedido ..> javafx.beans.property.StringProperty
+Main.model.detallePedido ..> javafx.collections.ObservableList
+Main.vistaControl.Administrador.NuevoEditarController ..> Main.model.Trabajador
+Main.vistaControl.Administrador.NuevoEditarController ..> java.lang.Override
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.fxml.FXML
+Main.vistaControl.Administrador.NuevoEditarController ..> Main.ProyectoDS
+Main.vistaControl.Administrador.NuevoEditarController ..> java.io.IOException
+Main.vistaControl.Administrador.NuevoEditarController ..> java.net.URL
+Main.vistaControl.Administrador.NuevoEditarController ..> java.util.ResourceBundle
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.event.ActionEvent
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.fxml.FXMLLoader
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.scene.Node
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.scene.Parent
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.scene.Scene
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.scene.control.Button
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.scene.control.TextField
+Main.vistaControl.Administrador.NuevoEditarController ..> javafx.stage.Stage
+Main.vistaControl.Administrador.NuevoEditarController --|> javafx.fxml.Initializable
+Main.vistaControl.Administrador.PrincipalAController ..> Main.model.Trabajador
+Main.vistaControl.Administrador.PrincipalAController ..> java.lang.Override
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.fxml.FXML
+Main.vistaControl.Administrador.PrincipalAController ..> Main.Conexion
+Main.vistaControl.Administrador.PrincipalAController ..> Main.Login
+Main.vistaControl.Administrador.PrincipalAController ..> Main.model.Mesa
+Main.vistaControl.Administrador.PrincipalAController ..> java.io.IOException
+Main.vistaControl.Administrador.PrincipalAController ..> java.net.URL
+Main.vistaControl.Administrador.PrincipalAController ..> java.sql.Connection
+Main.vistaControl.Administrador.PrincipalAController ..> java.sql.PreparedStatement
+Main.vistaControl.Administrador.PrincipalAController ..> java.sql.ResultSet
+Main.vistaControl.Administrador.PrincipalAController ..> java.sql.ResultSetMetaData
+Main.vistaControl.Administrador.PrincipalAController ..> java.sql.SQLException
+Main.vistaControl.Administrador.PrincipalAController ..> java.sql.Statement
+Main.vistaControl.Administrador.PrincipalAController ..> java.util.ResourceBundle
+Main.vistaControl.Administrador.PrincipalAController ..> java.util.logging.Level
+Main.vistaControl.Administrador.PrincipalAController ..> java.util.logging.Logger
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.beans.property.SimpleStringProperty
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.beans.value.ChangeListener
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.beans.value.ObservableValue
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.collections.FXCollections
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.collections.ObservableList
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.event.ActionEvent
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.fxml.FXMLLoader
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.Node
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.Parent
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.Scene
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.Button
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.DatePicker
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.Label
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.RadioButton
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.TableCell
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.TableColumn
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.TableView
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.scene.control.cell.PropertyValueFactory
+Main.vistaControl.Administrador.PrincipalAController ..> javafx.stage.Stage
+Main.vistaControl.Administrador.PrincipalAController --|> javafx.fxml.Initializable
+Main.vistaControl.Cajero.MetVisaController ..> java.lang.Override
+Main.vistaControl.Cajero.MetVisaController ..> javafx.fxml.FXML
+Main.vistaControl.Cajero.MetVisaController ..> java.net.URL
+Main.vistaControl.Cajero.MetVisaController ..> java.util.ResourceBundle
+Main.vistaControl.Cajero.MetVisaController ..> javafx.scene.control.Button
+Main.vistaControl.Cajero.MetVisaController ..> javafx.scene.control.DatePicker
+Main.vistaControl.Cajero.MetVisaController ..> javafx.scene.control.TextField
+Main.vistaControl.Cajero.MetVisaController --|> javafx.fxml.Initializable
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> java.lang.Override
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> javafx.fxml.FXML
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> java.net.URL
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> java.util.ResourceBundle
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> javafx.scene.control.Button
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Cajero.NuevoEditarClienteController ..> javafx.scene.control.TextField
+Main.vistaControl.Cajero.NuevoEditarClienteController --|> javafx.fxml.Initializable
+Main.vistaControl.Cajero.PrincipalCController ..> java.lang.Override
+Main.vistaControl.Cajero.PrincipalCController ..> javafx.fxml.FXML
+Main.vistaControl.Cajero.PrincipalCController ..> Main.Login
+Main.vistaControl.Cajero.PrincipalCController ..> java.net.URL
+Main.vistaControl.Cajero.PrincipalCController ..> java.util.ResourceBundle
+Main.vistaControl.Cajero.PrincipalCController ..> javafx.scene.control.Button
+Main.vistaControl.Cajero.PrincipalCController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Cajero.PrincipalCController ..> javafx.scene.control.Label
+Main.vistaControl.Cajero.PrincipalCController ..> javafx.scene.control.TableView
+Main.vistaControl.Cajero.PrincipalCController ..> javafx.scene.control.TextField
+Main.vistaControl.Cajero.PrincipalCController --|> javafx.fxml.Initializable
+Main.vistaControl.Cocinero.AtendiendoController ..> java.lang.Override
+Main.vistaControl.Cocinero.AtendiendoController ..> javafx.fxml.FXML
+Main.vistaControl.Cocinero.AtendiendoController ..> java.net.URL
+Main.vistaControl.Cocinero.AtendiendoController ..> java.util.ResourceBundle
+Main.vistaControl.Cocinero.AtendiendoController ..> javafx.scene.control.Button
+Main.vistaControl.Cocinero.AtendiendoController ..> javafx.scene.control.TableView
+Main.vistaControl.Cocinero.AtendiendoController --|> javafx.fxml.Initializable
+Main.vistaControl.Cocinero.PrincipalMController ..> java.lang.Override
+Main.vistaControl.Cocinero.PrincipalMController ..> javafx.fxml.FXML
+Main.vistaControl.Cocinero.PrincipalMController ..> Main.Login
+Main.vistaControl.Cocinero.PrincipalMController ..> Main.model.Cocinero
+Main.vistaControl.Cocinero.PrincipalMController ..> Main.model.Pedido
+Main.vistaControl.Cocinero.PrincipalMController ..> Main.model.detallePedido
+Main.vistaControl.Cocinero.PrincipalMController ..> java.net.URL
+Main.vistaControl.Cocinero.PrincipalMController ..> java.util.Date
+Main.vistaControl.Cocinero.PrincipalMController ..> java.util.ResourceBundle
+Main.vistaControl.Cocinero.PrincipalMController ..> javafx.scene.control.Button
+Main.vistaControl.Cocinero.PrincipalMController ..> javafx.scene.control.Label
+Main.vistaControl.Cocinero.PrincipalMController ..> javafx.scene.control.TableColumn
+Main.vistaControl.Cocinero.PrincipalMController ..> javafx.scene.control.TableView
+Main.vistaControl.Cocinero.PrincipalMController --|> javafx.fxml.Initializable
+Main.vistaControl.Mesero.EstadoController ..> java.lang.Override
+Main.vistaControl.Mesero.EstadoController ..> javafx.fxml.FXML
+Main.vistaControl.Mesero.EstadoController ..> Main.Help.CuentaConverter
+Main.vistaControl.Mesero.EstadoController ..> Main.Help.MesaConverter
+Main.vistaControl.Mesero.EstadoController ..> Main.Help.PedidoConverter
+Main.vistaControl.Mesero.EstadoController ..> Main.ProyectoDS
+Main.vistaControl.Mesero.EstadoController ..> Main.model.Cuenta
+Main.vistaControl.Mesero.EstadoController ..> Main.model.Mesa
+Main.vistaControl.Mesero.EstadoController ..> Main.model.Pedido
+Main.vistaControl.Mesero.EstadoController ..> Main.model.detallePedido
+Main.vistaControl.Mesero.EstadoController ..> java.io.IOException
+Main.vistaControl.Mesero.EstadoController ..> java.net.URL
+Main.vistaControl.Mesero.EstadoController ..> java.text.DateFormat
+Main.vistaControl.Mesero.EstadoController ..> java.text.SimpleDateFormat
+Main.vistaControl.Mesero.EstadoController ..> java.util.ResourceBundle
+Main.vistaControl.Mesero.EstadoController ..> javafx.beans.value.ChangeListener
+Main.vistaControl.Mesero.EstadoController ..> javafx.beans.value.ObservableValue
+Main.vistaControl.Mesero.EstadoController ..> javafx.collections.FXCollections
+Main.vistaControl.Mesero.EstadoController ..> javafx.collections.ObservableList
+Main.vistaControl.Mesero.EstadoController ..> javafx.fxml.FXMLLoader
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.Scene
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.control.Button
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.control.Label
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.control.TableColumn
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.control.TableView
+Main.vistaControl.Mesero.EstadoController ..> javafx.scene.layout.AnchorPane
+Main.vistaControl.Mesero.EstadoController ..> javafx.stage.Stage
+Main.vistaControl.Mesero.EstadoController --|> javafx.fxml.Initializable
+Main.vistaControl.Mesero.ListosController ..> java.lang.Override
+Main.vistaControl.Mesero.ListosController ..> javafx.fxml.FXML
+Main.vistaControl.Mesero.ListosController ..> Main.Help.infoEntrega
+Main.vistaControl.Mesero.ListosController ..> Main.Login
+Main.vistaControl.Mesero.ListosController ..> Main.model.Mesero
+Main.vistaControl.Mesero.ListosController ..> Main.model.detallePedido
+Main.vistaControl.Mesero.ListosController ..> java.net.URL
+Main.vistaControl.Mesero.ListosController ..> java.util.ResourceBundle
+Main.vistaControl.Mesero.ListosController ..> javafx.scene.control.Button
+Main.vistaControl.Mesero.ListosController ..> javafx.scene.control.TableColumn
+Main.vistaControl.Mesero.ListosController ..> javafx.scene.control.TableView
+Main.vistaControl.Mesero.ListosController --|> javafx.fxml.Initializable
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.MenuElemento
+Main.vistaControl.Mesero.NuevoItemController ..> java.lang.Override
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.fxml.FXML
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.Bebida
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.Categoria
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.Combo
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.Mesa
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.Persona
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.Plato
+Main.vistaControl.Mesero.NuevoItemController ..> Main.model.detallePedido
+Main.vistaControl.Mesero.NuevoItemController ..> java.net.URL
+Main.vistaControl.Mesero.NuevoItemController ..> java.util.ResourceBundle
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.beans.property.IntegerProperty
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.collections.FXCollections
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.collections.ObservableList
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.scene.control.TableColumn
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.scene.control.TableView
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.scene.control.TextArea
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.scene.control.TextField
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.stage.Stage
+Main.vistaControl.Mesero.NuevoItemController ..> javafx.util.StringConverter
+Main.vistaControl.Mesero.NuevoItemController --|> javafx.fxml.Initializable
+Main.vistaControl.Mesero.PincipalController ..> Main.model.MenuElemento
+Main.vistaControl.Mesero.PincipalController ..> java.lang.Override
+Main.vistaControl.Mesero.PincipalController ..> javafx.fxml.FXML
+Main.vistaControl.Mesero.PincipalController ..> Main.Help.CuentaConverter
+Main.vistaControl.Mesero.PincipalController ..> Main.Help.MesaConverter
+Main.vistaControl.Mesero.PincipalController ..> Main.Login
+Main.vistaControl.Mesero.PincipalController ..> Main.ProyectoDS
+Main.vistaControl.Mesero.PincipalController ..> Main.model.Categoria
+Main.vistaControl.Mesero.PincipalController ..> Main.model.Cuenta
+Main.vistaControl.Mesero.PincipalController ..> Main.model.Mesa
+Main.vistaControl.Mesero.PincipalController ..> Main.model.Mesero
+Main.vistaControl.Mesero.PincipalController ..> Main.model.Pedido
+Main.vistaControl.Mesero.PincipalController ..> Main.model.Persona
+Main.vistaControl.Mesero.PincipalController ..> Main.model.detallePedido
+Main.vistaControl.Mesero.PincipalController ..> java.io.IOException
+Main.vistaControl.Mesero.PincipalController ..> java.net.URL
+Main.vistaControl.Mesero.PincipalController ..> java.text.SimpleDateFormat
+Main.vistaControl.Mesero.PincipalController ..> java.util.ResourceBundle
+Main.vistaControl.Mesero.PincipalController ..> javafx.collections.FXCollections
+Main.vistaControl.Mesero.PincipalController ..> javafx.collections.ListChangeListener
+Main.vistaControl.Mesero.PincipalController ..> javafx.collections.ObservableList
+Main.vistaControl.Mesero.PincipalController ..> javafx.event.ActionEvent
+Main.vistaControl.Mesero.PincipalController ..> javafx.event.EventHandler
+Main.vistaControl.Mesero.PincipalController ..> javafx.fxml.FXMLLoader
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.Scene
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.Button
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.CheckBox
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.ChoiceBox
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.Label
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.Tab
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.TableColumn
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.control.TableView
+Main.vistaControl.Mesero.PincipalController ..> javafx.scene.layout.AnchorPane
+Main.vistaControl.Mesero.PincipalController ..> javafx.stage.Stage
+Main.vistaControl.Mesero.PincipalController ..> javafx.util.StringConverter
+Main.vistaControl.Mesero.PincipalController --|> javafx.fxml.Initializable
+Main.vistaControl.login.FXMLDocumentController ..> Main.Interfaces.InterGraficas
+Main.vistaControl.login.FXMLDocumentController ..> Main.model.Trabajador
+Main.vistaControl.login.FXMLDocumentController ..> java.lang.Override
+Main.vistaControl.login.FXMLDocumentController ..> javafx.fxml.FXML
+Main.vistaControl.login.FXMLDocumentController ..> Main.Interfaces.ConcretGrafica
+Main.vistaControl.login.FXMLDocumentController ..> Main.Login
+Main.vistaControl.login.FXMLDocumentController ..> java.net.URL
+Main.vistaControl.login.FXMLDocumentController ..> java.util.ResourceBundle
+Main.vistaControl.login.FXMLDocumentController ..> javafx.event.ActionEvent
+Main.vistaControl.login.FXMLDocumentController ..> javafx.scene.Node
+Main.vistaControl.login.FXMLDocumentController ..> javafx.scene.control.Alert
+Main.vistaControl.login.FXMLDocumentController ..> javafx.scene.control.Alert.AlertType
+Main.vistaControl.login.FXMLDocumentController ..> javafx.scene.control.Button
+Main.vistaControl.login.FXMLDocumentController ..> javafx.scene.control.Label
+Main.vistaControl.login.FXMLDocumentController ..> javafx.scene.control.TextField
+Main.vistaControl.login.FXMLDocumentController ..> Main.Interfaces.FactoryGrafica
+Main.vistaControl.login.FXMLDocumentController --|> javafx.fxml.Initializable
+Main.Interfaces.FactoryGrafica ..> Main.model.Trabajador
+@enduml
