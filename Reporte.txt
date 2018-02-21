@@ -1,0 +1,5 @@
+select cuenta, nombre, sum(d.cantidad) as totalplatos from ((select cuenta, pedido, t.nombre as nombre 
+from ((select c.id_cuenta as cuenta, p.id_trabajador as trabajador, p.id_pedido as pedido  
+	  from cuenta c, pedido p
+	  where c.id_cuenta = p.id_cuenta and c.valor_total > 20) as etapa1), trabajador t where etapa1.trabajador = t.username) as etapa2), detallepedido d
+      where pedido = d.id_pedido group by cuenta; 
