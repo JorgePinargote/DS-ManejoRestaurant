@@ -57,6 +57,11 @@ public class NuevoItemController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Categoria.cargarCategorias();
+        Bebida.cargarBebidas();
+        Plato.cargarPlatos();
+        Combo.cargarCombos();
+        
         chcategoria.setConverter(new ConvertCategoria());
         chcategoria.setItems(Categoria.getCategorias());
         

@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/Help/tarjetaDataController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/StrategyPago.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/MetVisaController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Persona.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/Help/electronicoDataController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/CobrarController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/PagoEfectivo.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Help/CuentaConverter.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Cuenta.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/PrincipalCController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/detalleCuenta.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/PagoTarjetas.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Help/MetodoConverter.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Login.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/pagoElectronico.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/NuevoEditarClienteController.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -24,6 +24,7 @@ import javafx.collections.ObservableList;
 public class Cocinero extends Trabajador {
     private ObservableList<Pedido> pedidosNormal;
     private ObservableList<Pedido> pedidosPrioridad;
+    
     private Pedido atendiendo;
     
     public Cocinero(String rol, boolean eliminado, String nombre, String apellido, String direccion, String cedula, String telefono, String username) {
@@ -75,7 +76,7 @@ public class Cocinero extends Trabajador {
         return null;
     }
     
-    public void atenger(){
+    public void atengerSiguiente(){
         atendiendo = getSiguiente();
         if(atendiendo!=null){
             Conexion conexion = Conexion.getInstance();
@@ -102,39 +103,12 @@ public class Cocinero extends Trabajador {
         }
     
     }
-    
-    public void setListo(){
-        if(atendiendo!=null){
-            Conexion conexion = Conexion.getInstance();
-            Connection conectar = conexion.getConexion();
-            try{
-                    PreparedStatement pst = 
-                        conectar.prepareStatement("Update pedido set listo = ? where id_pedido = ?");
-                        pst.setBoolean(1,true);
-                        pst.setInt(2,atendiendo.getIdpedido());
-                    
-                        int res = pst.executeUpdate();
-                        
-                        if(res>0){
-                            System.out.println("pedido actualizado");
-                        }else{
-                            System.out.println("Error al actualizar");
-                        }
-                        
-            }catch(Exception ex){
-                System.out.println("consulta no se realizo");
-                ex.printStackTrace();
-            }
-            
-            if(atendiendo.isPreferencial()){
-                pedidosPrioridad.remove(atendiendo);
-            }else{
-                pedidosNormal.remove(atendiendo);
-            }
-        
-        }
-    
+
+    public void setAtendiendo(Pedido atendiendo) {
+        this.atendiendo = atendiendo;
     }
+    
+    
 
     public ObservableList<Pedido> getPedidosNormal() {
         return pedidosNormal;
@@ -148,7 +122,13 @@ public class Cocinero extends Trabajador {
         return atendiendo;
     }
     
+    public boolean isNormalEmpty(){
+        return this.pedidosNormal.isEmpty();
+    }
     
+    public boolean isPrioridadEmpty(){
+        return this.pedidosPrioridad.isEmpty();
+    }
     
     
 }

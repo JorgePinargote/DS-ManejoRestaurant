@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.vistaControl.Cajero.PrincipalCController">
@@ -20,48 +18,22 @@
                      <children>
                         <TableView fx:id="tbclientes" layoutX="30.0" layoutY="35.0" prefHeight="448.0" prefWidth="797.0">
                           <columns>
-                            <TableColumn prefWidth="188.0" text="Nombre" />
-                            <TableColumn prefWidth="120.0" text="Apellido" />
-                              <TableColumn prefWidth="151.0" text="Cedula" />
-                              <TableColumn prefWidth="142.0" text="Direccion" />
-                              <TableColumn prefWidth="195.0" text="Telefono" />
+                            <TableColumn fx:id="nombreColumn" prefWidth="188.0" text="Nombre" />
+                            <TableColumn fx:id="apellidoColumn" prefWidth="120.0" text="Apellido" />
+                              <TableColumn fx:id="cedulaColumn" prefWidth="151.0" text="Cedula" />
+                              <TableColumn fx:id="direccionColumn" prefWidth="142.0" text="Direccion" />
+                              <TableColumn fx:id="telefonoColumn" prefWidth="195.0" text="Telefono" />
                           </columns>
                         </TableView>
-                        <Button fx:id="btnnuevo" layoutX="30.0" layoutY="504.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="133.0" text="Nuevo" />
-                        <Button fx:id="btneditar" layoutX="180.0" layoutY="504.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="133.0" text="Editar" />
+                        <Button fx:id="btnnuevo" layoutX="30.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleNuevo" prefHeight="40.0" prefWidth="133.0" text="Nuevo" />
+                        <Button fx:id="btneditar" layoutX="180.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleEditar" prefHeight="40.0" prefWidth="133.0" text="Editar" />
+                        <Button fx:id="btnaddtarjeta" layoutX="333.0" layoutY="502.0" mnemonicParsing="false" onAction="#handleAddTarjeta" prefHeight="42.0" prefWidth="127.0" text="Agregar tarjeta" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
           <Tab text="Cobrar">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="26.0" layoutY="20.0" text="Mesa:" />
-                        <ChoiceBox fx:id="chmesa" layoutX="76.0" layoutY="15.0" prefHeight="31.0" prefWidth="98.0" />
-                        <TableView fx:id="tbcuentas" layoutX="23.0" layoutY="58.0" prefHeight="405.0" prefWidth="819.0">
-                          <columns>
-                            <TableColumn prefWidth="447.0" text="Cliente" />
-                              <TableColumn prefWidth="109.0" text="Cuenta" />
-                            <TableColumn prefWidth="100.0" text="Subtotal" />
-                              <TableColumn prefWidth="91.0" text="Total" />
-                              <TableColumn prefWidth="71.0" text="Pagado" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="564.0" layoutY="506.0" text="Total:" />
-                        <Label layoutX="24.0" layoutY="485.0" text="Descuento:" />
-                        <Label fx:id="lbltotal" layoutX="607.0" layoutY="506.0" text="TOTAL" />
-                        <TextField fx:id="txtdescuento" layoutX="114.0" layoutY="478.0" prefHeight="31.0" prefWidth="50.0" />
-                        <Label layoutX="26.0" layoutY="523.0" text="IVA:" />
-                        <Label fx:id="lbliva" layoutX="60.0" layoutY="524.0" text="PONERIVA" />
-                        <Label layoutX="197.0" layoutY="483.0" text="Mètodo de pago:" />
-                        <ChoiceBox fx:id="chmetodo" layoutX="329.0" layoutY="478.0" prefHeight="31.0" prefWidth="207.0" />
-                        <Button fx:id="btncobrar" layoutX="673.0" layoutY="495.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="159.0" text="Cobrar" />
-                        <TextField fx:id="txtcantidad" disable="true" layoutX="443.0" layoutY="524.0" prefHeight="31.0" prefWidth="92.0" />
-                        <Label layoutX="375.0" layoutY="529.0" text="Cantidad" />
-                     </children>
-                  </AnchorPane>
-            </content>
+            <fx:include fx:id="cobrarTab" source="Cobrar.fxml" />
           </Tab>
         </tabs>
       </TabPane>

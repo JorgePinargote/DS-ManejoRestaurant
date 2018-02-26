@@ -27,7 +27,9 @@ public class Cuenta {
     private double saldo;
     private double valortotal;
     Date fecha;
+    
     private ObservableList<Pedido> Pedidos;
+    private ObservableList<detalleCuenta> detalles;
     
     //carga las cuentas existentes 
     public Cuenta(int idcuenta, double saldo, double valortotal, Date fecha) {
@@ -36,12 +38,14 @@ public class Cuenta {
         this.valortotal = valortotal;
         this.fecha = fecha;
         this.Pedidos = FXCollections.observableArrayList();
+        this.detalles = FXCollections.observableArrayList();
     }
     
     //crear nueva cuenta
     public Cuenta(){
         this.idcuenta = 0;
         this.Pedidos = FXCollections.observableArrayList();
+        this.detalles = FXCollections.observableArrayList();
     }
     
      public int sendPedido(Pedido pedido){
@@ -174,6 +178,91 @@ public class Cuenta {
             }   
             
             return -1;
+    }
+    
+    
+    public void getMyDetalles(){
+        this.detalles.clear();
+        Conexion conexion = Conexion.getInstance();
+        Connection conectar = conexion.getConexion();
+            try{
+                Statement stm = conectar.createStatement();
+                ResultSet rst = stm.executeQuery("Select * from detallecuenta where id_cuenta = " + this.idcuenta);
+                ResultSetMetaData rsMd = rst.getMetaData();
+                
+                while(rst.next()){
+                    int iddetalle = (int)rst.getObject(1);
+                    Double subtotal = (Double)rst.getObject(2);
+                    double descuento = (double)rst.getObject(3);
+                    Double total = (Double)rst.getObject(4);
+                    
+                    detalleCuenta detalle = new detalleCuenta(iddetalle,subtotal,descuento,total);
+                    detalle.cargarMyPago();
+                    this.detalles.add(detalle);
+                }
+                
+            }catch(Exception ex){
+                System.out.println("consulta no se realizo");
+                ex.printStackTrace();
+            }    
+    
+    }
+    
+    
+    public void sendDetalle(detalleCuenta detalle){
+        Conexion conexion = Conexion.getInstance();
+        Connection conectar = conexion.getConexion();
+        int clave = 0;
+            try{
+                PreparedStatement pst = 
+                        conectar.prepareStatement("insert into detallecuenta(subtotal,descuento,total,id_cuenta) VALUES(?,?,?,?)", Statement.RETURN_GENERATED_KEYS );
+                        
+                        pst.setDouble(1,detalle.getSubtotal());
+                        pst.setDouble(2,detalle.getDescuento());
+                        pst.setDouble(3,detalle.getTotal());
+                        pst.setInt(4,this.getIdcuenta());
+                        
+                        int res = pst.executeUpdate();
+                        
+                        if(res>0){
+                            System.out.println("detalle de cuenta Enviado");
+                        }else{
+                            System.out.println("Error al Enviar detalle de cuenta");
+                        }
+                        
+                        ResultSet rs = pst.getGeneratedKeys(); 
+                        
+                        if(rs.next()){ 
+                            System.out.println("id generado");
+                            clave = rs.getInt(1);
+                            detalle.setIddetalle(clave);
+                        }else{
+                            System.out.println("error obteniendo id");
+                        }
+            }catch(Exception ex){
+                System.out.println("consulta no se realizo");
+                ex.printStackTrace();
+            }
+    
+    }
+
+    public ObservableList<detalleCuenta> getDetalles() {
+        return detalles;
+    }
+    
+    
+    public static void changeDetalles(Cuenta cuenta,ObservableList<detalleCuenta> detalle){
+        detalle.clear();
+        cuenta.getMyDetalles();
+        detalle.addAll(cuenta.getDetalles());
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public double getValortotal() {
+        return valortotal;
     }
     
     

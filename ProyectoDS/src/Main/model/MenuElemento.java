@@ -7,6 +7,7 @@ package Main.model;
 
 import Main.Conexion;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
@@ -98,8 +99,6 @@ public abstract class MenuElemento {
         return this.idmenu.get();
     }
      
-     
-     
     
     public static MenuElemento getItemById(int id,ObservableList<MenuElemento> lista){
         
@@ -148,6 +147,45 @@ public abstract class MenuElemento {
         
     }
     
+    public static void setAllItems(ObservableList<MenuElemento> items){
+        for (MenuElemento item : Bebida.getBebidas()) {
+             items.add(item);
+        }
+        
+        for (MenuElemento item : Plato.getPlatos()) {
+             items.add(item);
+        }
+        
+        for (MenuElemento item : Combo.getComboItems()) {
+             items.add(item);   
+        }
+    
+    }    
+    
+    public void Quitar(){
+        Conexion conexion = Conexion.getInstance();
+        Connection conectar = conexion.getConexion();
+            try{
+                    PreparedStatement pst = 
+                        conectar.prepareStatement("Update menuitem set disponibles = ? where id_menuItem = ?");
+                        pst.setInt(1, 0);
+                        pst.setInt(2, this.getIdMenu());
+                    
+                        int res = pst.executeUpdate();
+                        
+                        if(res>0){
+                            System.out.println("Menu quitado");
+                        }else{
+                            System.out.println("Error al quitar");
+                        }
+                        
+            }catch(Exception ex){
+                System.out.println("consulta no se realizo");
+                ex.printStackTrace();
+            }
+    
+    
+    }
     
     public abstract void setTiempoPreparacion(int time);
     
