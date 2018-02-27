@@ -112,19 +112,7 @@ public class PincipalController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
          Login login = Login.getInstance();
          lblnombre.setText(login.getTrabajador().getNombre() +" "+ login.getTrabajador().getApellido());
-         
-         
-         /*
-         chcliente.setConverter(new ConverterchCliente());
-         Persona.CargarPersonAgain();
-         chcliente.setItems(Persona.getPersonData());
-         
-         clienteColumn.setCellValueFactory(cellData -> cellData.getValue().getApellidoProperty());
-         cedulaColumn.setCellValueFactory(cellData -> cellData.getValue().getCedulaProperty());
-         
-         tbcliente.setItems(choosenClient);*/
-         
-        
+         if(login.getTrabajador() instanceof Mesero)((Mesero)login.getTrabajador()).starCheck();
          
          chmesa.setConverter(new MesaConverter());
          Mesa.cargarMesaAgain();
@@ -144,22 +132,6 @@ public class PincipalController implements Initializable{
          
     }
     
-    
-    /*
-    public void handleagregarcli(){
-        Persona persona = chcliente.getSelectionModel().getSelectedItem();
-        if(persona != null){
-            choosenClient.add(persona);
-        }
-    }
-    
-     public void handleeliminarcli(){
-        int index = tbcliente.getSelectionModel().getSelectedIndex();
-        if(index >= 0){
-            choosenClient.remove(index);
-        }
-    }
-     */
      
      public void handleEliminardetalle(){
          int index = tbdetalle.getSelectionModel().getSelectedIndex();

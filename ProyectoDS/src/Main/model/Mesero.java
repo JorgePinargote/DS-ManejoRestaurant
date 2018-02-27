@@ -32,10 +32,8 @@ public class Mesero extends Trabajador{
         super(rol, eliminado, nombre, apellido, direccion, cedula, telefono, username);
         this.allPedidos = FXCollections.observableArrayList();
         this.pedidosListos = FXCollections.observableArrayList();
+
         
-        CheckEstadoPedidos check = new CheckEstadoPedidos(this.allPedidos);
-        Thread thread = new Thread(check);
-        thread.start();
     }
 
     
@@ -65,13 +63,13 @@ public class Mesero extends Trabajador{
         return pedidosListos;
     }
     
-    public void getMyPedidos(){
+    public void getPedidosAnteriores(){
         this.allPedidos.clear();
         Conexion conexion = Conexion.getInstance();
         Connection conectar = conexion.getConexion();
             try{
                 Statement stm = conectar.createStatement();
-                ResultSet rst = stm.executeQuery("Select * from pedido where id_trabajador = " + this.getUserName() + " and atendido = 0");
+                ResultSet rst = stm.executeQuery("Select * from pedido where id_trabajador = \"" +  this.getUserName() + "\" and atendido = 0");
                 ResultSetMetaData rsMd = rst.getMetaData();
                 
                 while(rst.next()){
@@ -98,7 +96,13 @@ public class Mesero extends Trabajador{
     }
     
     
+    public void starCheck(){
+        getPedidosAnteriores();
+        CheckEstadoPedidos check = new CheckEstadoPedidos(this.allPedidos);
+        Thread thread = new Thread(check);
+        thread.start();
     
+    }
     
     
     
