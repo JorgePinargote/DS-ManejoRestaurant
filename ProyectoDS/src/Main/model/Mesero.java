@@ -5,8 +5,15 @@
  */
 package Main.model;
 
+import Main.Conexion;
 import Main.Help.CheckEstadoPedidos;
 import Main.Help.infoEntrega;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -57,6 +64,39 @@ public class Mesero extends Trabajador{
     public ObservableList<infoEntrega> getPedidosListos() {
         return pedidosListos;
     }
+    
+    public void getMyPedidos(){
+        this.allPedidos.clear();
+        Conexion conexion = Conexion.getInstance();
+        Connection conectar = conexion.getConexion();
+            try{
+                Statement stm = conectar.createStatement();
+                ResultSet rst = stm.executeQuery("Select * from pedido where id_trabajador = " + this.getUserName() + " and atendido = 0");
+                ResultSetMetaData rsMd = rst.getMetaData();
+                
+                while(rst.next()){
+                    int idpedido = (int)rst.getObject(1);
+                    boolean preferencial = (boolean)rst.getObject(2);
+                    boolean atendido = (boolean)rst.getObject(3);
+                    boolean listo = (boolean)rst.getObject(4);
+                    Timestamp ingreso = (Timestamp)rst.getObject(5);
+                    Date horaingreso = new Date(ingreso.getTime());
+                    Double tiempoestimado = (Double)rst.getObject(6);
+                    Double precio = (Double)rst.getObject(9);
+                    
+                    Pedido pedido = new Pedido(idpedido,preferencial,atendido,listo,horaingreso,precio,tiempoestimado);
+                    this.allPedidos.add(pedido); 
+                }
+                
+            }catch(Exception ex){
+                System.out.println("consulta no se realizo");
+                ex.printStackTrace();
+            }
+
+        
+    
+    }
+    
     
     
     
