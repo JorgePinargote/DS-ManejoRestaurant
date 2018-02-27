@@ -6,20 +6,31 @@
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/Help/tarjetaDataController.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/StrategyPago.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/MetVisaController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Mesero/EstadoController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Cocinero.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/Help/electronicoDataController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/PagoEfectivo.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Login.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cocinero/PrincipalMController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Help/CheckEstadoPedidos.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Persona.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Pedido.java</file>
-            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/Help/electronicoDataController.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/CobrarController.java</file>
-            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/PagoEfectivo.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Help/CuentaConverter.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Cuenta.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Mesero.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/PrincipalCController.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/detalleCuenta.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/PagoTarjetas.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Help/MetodoConverter.java</file>
-            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Login.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/login/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/test/testPrecio.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/Trabajador.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/model/pagoElectronico.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/ProyectoDS.java</file>
             <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Cajero/NuevoEditarClienteController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/vistaControl/Mesero/PincipalController.java</file>
+            <file>file:/C:/Users/Jorge%20Pinargote/Desktop/psf/FinalPinargote/ProyectoDS/src/Main/Help/CheckPedidos.java</file>
         </group>
     </open-files>
 </project-private>

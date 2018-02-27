@@ -1,5 +1,16 @@
+/*Reporte de mesero con cuentas mayores a 50*/ 
+
 select cuenta, nombre, sum(d.cantidad) as totalplatos from ((select cuenta, pedido, t.nombre as nombre 
 from ((select c.id_cuenta as cuenta, p.id_trabajador as trabajador, p.id_pedido as pedido  
 	  from cuenta c, pedido p
 	  where c.id_cuenta = p.id_cuenta and c.valor_total > 20) as etapa1), trabajador t where etapa1.trabajador = t.username) as etapa2), detallepedido d
       where pedido = d.id_pedido group by cuenta; 
+
+
+/*Reporte de pedidos y sus tiempos*/
+
+select  id_pedido as idpedido, id_menuItem as item, 
+	   (select nombre from menuitem where id_menuItem = item) as plato,
+       (select tiempo_estimado from menuitem where id_menuItem = item) as tiempo_estimado,
+	   (select tiempo_estimado from pedido where id_pedido = idpedido) as tiempo_esperado
+       from detallepedido order by id_pedido;
