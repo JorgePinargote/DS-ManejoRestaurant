@@ -5,7 +5,7 @@
  */
 package Main.model;
 
-import Main.Help.CheckPedidos;
+import Main.Help.CheckEstadoPedidos;
 import Main.Help.infoEntrega;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,7 +25,8 @@ public class Mesero extends Trabajador{
         super(rol, eliminado, nombre, apellido, direccion, cedula, telefono, username);
         this.allPedidos = FXCollections.observableArrayList();
         this.pedidosListos = FXCollections.observableArrayList();
-        CheckPedidos check = new CheckPedidos(this.allPedidos);
+        
+        CheckEstadoPedidos check = new CheckEstadoPedidos(this.allPedidos);
         Thread thread = new Thread(check);
         thread.start();
     }

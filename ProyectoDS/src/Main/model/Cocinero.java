@@ -6,6 +6,7 @@
 package Main.model;
 
 import Main.Conexion;
+import Main.Help.CheckPedidos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,12 +34,12 @@ public class Cocinero extends Trabajador {
         pedidosPrioridad = FXCollections.observableArrayList(); 
     }
     
-    public void cargarPedidos(int tipo){
+    public void cargarPedidos( ){
         Conexion conexion = Conexion.getInstance();
         Connection conectar = conexion.getConexion();
             try{
                 Statement stm = conectar.createStatement();
-                ResultSet rst = stm.executeQuery("Select * from pedido where atendido = 0 and preferencial = " + tipo);
+                ResultSet rst = stm.executeQuery("Select * from pedido where atendido = 0 ");
                 ResultSetMetaData rsMd = rst.getMetaData();
                 
                 while(rst.next()){
@@ -52,13 +53,7 @@ public class Cocinero extends Trabajador {
                     Double precio = (Double)rst.getObject(9);
                     
                     Pedido pedido = new Pedido(idpedido,preferencial,atendido,listo,horaingreso,precio,tiempoestimado);
-                    
-                    
-                    if(tipo==0){
-                        pedidosNormal.add(pedido);
-                    }else{
-                        pedidosPrioridad.add(pedido);
-                    }
+                    addPedido(pedido);
   
                 }
                 
@@ -129,6 +124,56 @@ public class Cocinero extends Trabajador {
     public boolean isPrioridadEmpty(){
         return this.pedidosPrioridad.isEmpty();
     }
+    
+    public void addPedido(Pedido pedido){
+        if(pedido.isPreferencial()){
+            pedidosPrioridad.add(pedido);
+        }else{
+            pedidosNormal.add(pedido);
+        }
+  
+    }
+    
+    public void DeletePedido(int idPedido){
+        DeletePedido(idPedido, this.pedidosNormal);
+        DeletePedido(idPedido, this.pedidosPrioridad);
+    }
+    
+    
+    public void DeletePedido(int idPedido, ObservableList<Pedido> pedidos){
+        Pedido eliminar = null;
+        for(Pedido pedido : pedidos){
+            if(pedido.getIdpedido() == idPedido)eliminar=pedido;
+        }
+        if(eliminar!=null)pedidos.remove(eliminar);
+    }
+    
+    
+    public void UpdatePedido(Pedido Actualizado){
+        Actualizado.getMyDetalles();
+        UpdatePedido(Actualizado, this.pedidosNormal);
+        UpdatePedido(Actualizado, this.pedidosPrioridad);
+    }
+    
+    public void UpdatePedido(Pedido Actualizado, ObservableList<Pedido> pedidos){
+        Pedido Actualizar = null;
+        for(Pedido pedido : pedidos){
+            if(pedido.getIdpedido() == Actualizado.getIdpedido())Actualizar = pedido;
+        }
+        if(Actualizar!=null){
+            pedidos.remove(Actualizar);
+            pedidos.add(Actualizado);
+        }
+    }
+    
+    public void StarCheck(){
+        CheckPedidos check = new CheckPedidos(this);
+        Thread thread = new Thread(check);
+        thread.start();
+    }
+    
+    
+   
     
     
 }

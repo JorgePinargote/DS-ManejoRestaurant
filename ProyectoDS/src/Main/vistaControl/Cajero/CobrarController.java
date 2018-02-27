@@ -90,6 +90,7 @@ public class CobrarController implements Initializable {
     private Label lbltotalpagar;
     @FXML
     private Label lblsaldo;
+    double saldo = 0;
     
     @FXML 
     private Button btncobrar;
@@ -116,7 +117,8 @@ public class CobrarController implements Initializable {
                 if(newValue!=null){
                     Cuenta.changeDetalles(newValue,detallescuentas); 
                     lbltotalcuenta.setText("" + newValue.getValortotal());
-                    lblsaldo.setText("" + newValue.getSaldo());
+                    saldo = newValue.getSaldo();
+                    lblsaldo.setText("" + saldo);
                 }else{
                      lbltotalcuenta.setText("");
                      lblsaldo.setText("");
@@ -147,6 +149,35 @@ public class CobrarController implements Initializable {
         chmetodo.setConverter(new MetodoConverter());
         chmetodo.setItems(metodo);
         
+        txtdescuento.textProperty().addListener((observable, oldValue, newValue) -> {
+             showTotal(newValue);
+        });
+        
+        
+    }
+    
+    
+    public void reinitMetodos(){
+        metodo.clear();
+        metodo.add(new PagoTarjetas());
+        metodo.add(new pagoElectronico());
+        metodo.add(new PagoEfectivo());
+    }
+    
+    public void showTotal(String descuento){
+        if(isValidInput()){
+           try{
+                Double subtotal = Double.parseDouble(txtcantidad.getText());
+                Double total = subtotal - (subtotal*Double.parseDouble(descuento))/100;
+                lbltotalpagar.setText("" + total);
+           
+           }catch(Exception ex){
+               System.out.println("ingrese un numero");
+           } 
+          
+        } 
+         
+    
     }
     
     public void handleCobrar(){
@@ -156,11 +187,20 @@ public class CobrarController implements Initializable {
              Cuenta cuenta = chcuenta.getSelectionModel().getSelectedItem();
              if(pago!=null && persona!=null && cuenta!=null ){
                  Double subtotal = Double.parseDouble(txtcantidad.getText());
-                 int descuento = Integer.parseInt(txtdescuento.getText());
+                 double descuento = Double.parseDouble(txtdescuento.getText());
                  Double total = subtotal - (subtotal*descuento)/100;
+                 
+                 lblsaldo.setText("" + (saldo - subtotal));
+                 
                  detalleCuenta detalle = new detalleCuenta(persona,subtotal,descuento,total); 
                  cuenta.sendDetalle(detalle);
                  detalle.Cobrar(pago);
+                 txtcantidad.setText("");
+                 txtdescuento.setText("");
+                 lbltotalpagar.setText("");
+                 reinitMetodos();
+                 detallescuentas.add(detalle);
+                 
              }    
          
          }

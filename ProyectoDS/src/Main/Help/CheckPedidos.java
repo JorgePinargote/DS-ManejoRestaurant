@@ -6,14 +6,12 @@
 package Main.Help;
 
 import Main.Conexion;
-import Main.model.MenuElemento;
+import Main.model.Cocinero;
 import Main.model.Pedido;
-import Main.model.detallePedido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
 import javafx.application.Platform;
@@ -23,14 +21,17 @@ import javafx.collections.ObservableList;
  *
  * @author Jorge Pinargote
  */
-public class CheckPedidos implements Runnable {
+public class CheckPedidos  implements Runnable {
+    Cocinero cocinero;
+    Date lastAddCheck;
+    Date lastUpdCheck;
+    Date lastDelCheck;
     
-    private ObservableList<Pedido> allPedidos;
-    Date lastCheck;
-
-    public CheckPedidos(ObservableList<Pedido> allPedidos) {
-        this.allPedidos = allPedidos;
-        lastCheck = new Date(System.currentTimeMillis());
+    public CheckPedidos(Cocinero cocinero){
+      this.cocinero = cocinero;    
+      lastAddCheck = new Date(System.currentTimeMillis());
+      lastDelCheck = new Date(System.currentTimeMillis());
+      lastUpdCheck = new Date(System.currentTimeMillis());
     }
     
     @Override
@@ -40,56 +41,108 @@ public class CheckPedidos implements Runnable {
           Platform.runLater(new Runnable(){
                   @Override
                   public void run(){
-                      if(allPedidos.size()> 0){
-                            Conexion conexion = Conexion.getInstance();
-                            Connection conectar = conexion.getConexion();
-                            Timestamp time = new Timestamp(lastCheck.getTime());
+                      CheckUpdate();
+                      CheckAdd();
+                      CheckDelete();
 
-                            try{
-                                  String sql = "Select * from log_pedido where tipo = ? and fecha > ?"; 
-                                  PreparedStatement ps = conectar.prepareStatement(sql);
-                                  ps.setString(1,"update");
-                                  ps.setTimestamp(2,time);
-
-                                  ResultSet rst = ps.executeQuery();
-                                  ResultSetMetaData rsMd = rst.getMetaData();
-
-                                  while(rst.next()){
-                                      Pedido pedido = Pedido.getPedidoByid((int)rst.getObject(2));
-                                      actualizar(pedido);
-                                  }
-
-                            }catch(Exception ex){
-                                  System.out.println("consulta no se realizo");
-                                  ex.printStackTrace();
-                            }
-
-
-                        }
-                      
-                      lastCheck = new Date(System.currentTimeMillis());
                    }
-              });
-                
-          try{
-               Thread.sleep(10000);
-          }
-          catch(InterruptedException ex){
+           });
+          
+                try{
+                    Thread.sleep(10000);
+                }
+                    catch(InterruptedException ex){
+                }
+          
+        }
+        
+    }
+    
+    
+    public void CheckAdd(){
+         Conexion conexion = Conexion.getInstance();
+         Connection conectar = conexion.getConexion();
+         Timestamp time = new Timestamp(lastAddCheck.getTime());
 
-          }
-        
-        }
-        
-    }
-    
-    
-    public void actualizar(Pedido pedido){
-        for(int i=0;i<allPedidos.size();i++){
-            if(allPedidos.get(i).getIdpedido()== pedido.getIdpedido()){
-                allPedidos.get(i).ActualizarEstado(pedido);
+        try{
+            String sql = "Select * from log_pedido where tipo = ? and fecha > ?"; 
+            PreparedStatement ps = conectar.prepareStatement(sql);
+            ps.setString(1,"add");
+            ps.setTimestamp(2,time);
+
+            ResultSet rst = ps.executeQuery();
+            ResultSetMetaData rsMd = rst.getMetaData();
+
+            while(rst.next()){
+                Pedido pedido = Pedido.getPedidoByid((int)rst.getObject(2));
+                cocinero.addPedido(pedido);
             }
+
+        }catch(Exception ex){
+            System.out.println("consulta no se realizo");
+            ex.printStackTrace();
         }
-    
+        
+        lastAddCheck = new Date(System.currentTimeMillis());
+        
     }
     
+    public void CheckDelete(){
+         Conexion conexion = Conexion.getInstance();
+         Connection conectar = conexion.getConexion();
+         Timestamp time = new Timestamp(lastDelCheck.getTime());
+
+        try{
+            String sql = "Select * from log_pedido where tipo = ? and fecha > ?"; 
+            PreparedStatement ps = conectar.prepareStatement(sql);
+            ps.setString(1,"delete");
+            ps.setTimestamp(2,time);
+
+            ResultSet rst = ps.executeQuery();
+            ResultSetMetaData rsMd = rst.getMetaData();
+
+            while(rst.next()){
+                
+                cocinero.DeletePedido((int)rst.getObject(2));
+            }
+
+        }catch(Exception ex){
+            System.out.println("consulta no se realizo");
+            ex.printStackTrace();
+        }
+        
+        lastDelCheck = new Date(System.currentTimeMillis());
+    }
+    
+    public void CheckUpdate(){
+         Conexion conexion = Conexion.getInstance();
+         Connection conectar = conexion.getConexion();
+         Timestamp time = new Timestamp(lastUpdCheck.getTime());
+
+        try{
+            String sql = "Select * from log_pedido where tipo = ? and fecha > ?"; 
+            PreparedStatement ps = conectar.prepareStatement(sql);
+            ps.setString(1,"update");
+            ps.setTimestamp(2,time);
+
+            ResultSet rst = ps.executeQuery();
+            ResultSetMetaData rsMd = rst.getMetaData();
+
+            while(rst.next()){
+                Pedido pedido = Pedido.getPedidoByid((int)rst.getObject(2));
+                cocinero.UpdatePedido(pedido);
+            }
+
+        }catch(Exception ex){
+            System.out.println("consulta no se realizo");
+            ex.printStackTrace();
+        }
+        
+        lastUpdCheck = new Date(System.currentTimeMillis());
+    }
+    
+    
+    
+    
+
 }

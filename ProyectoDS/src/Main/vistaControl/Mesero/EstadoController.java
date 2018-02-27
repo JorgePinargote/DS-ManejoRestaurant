@@ -116,10 +116,12 @@ public class EstadoController implements Initializable{
                         btneliminar2.setDisable(true);
                         btneliminarpedido.setDisable(true);
                         btnupdatepedido.setDisable(true);
-                        
-                        
                     }else{
                         lblestado.setText("No");
+                        btnadditem2.setDisable(false);
+                        btneliminar2.setDisable(false);
+                        btneliminarpedido.setDisable(false);
+                        btnupdatepedido.setDisable(false);
                     }
                }else{
                    lbltiempo.setText(" ");

@@ -391,10 +391,12 @@ public class Pedido {
        return this.idpedido;
    }
    
-    public DoubleProperty getTiempoProperty(){
+   public DoubleProperty getTiempoProperty(){
        return this.tiempolisto;
    }
     
+    
+   
    
    
 }

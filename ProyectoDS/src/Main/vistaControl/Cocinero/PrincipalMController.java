@@ -86,8 +86,8 @@ public class PrincipalMController implements Initializable {
       lblnombre.setText(login.getTrabajador().getNombre() +" "+ login.getTrabajador().getApellido());
       if(login.getTrabajador() instanceof Cocinero){
             cocinero = (Cocinero)login.getTrabajador();
-            cocinero.cargarPedidos(0);//normales
-            cocinero.cargarPedidos(1);//preferenciales
+            cocinero.cargarPedidos();
+            cocinero.StarCheck();
       }
       
       
